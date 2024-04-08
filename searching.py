@@ -26,6 +26,17 @@ def read_data(file_name, field):
     return data[field]
 
 
+def linear_search(sequence, cislo):
+    pozice = []
+    count = 0
+
+    for i, num in enumerate(sequence):
+        if num == cislo:
+            pozice.append(i)
+            count += 1
+
+    return {"positions": pozice, "count": count}
+
 def main():
     pass
 
@@ -36,3 +47,9 @@ if __name__ == '__main__':
     field = "unordered_numbers"
     seq_data = read_data(file, field)
     print(seq_data)
+
+    cislo = 63
+    result = linear_search(file, cislo)
+
+    print(f"Positions: {result['positions']}")
+    print(f"Count: {result['count']}")
