@@ -37,6 +37,25 @@ def linear_search(sequence, cislo):
 
     return {"positions": pozice, "count": count}
 
+
+def pattern_search(sequence, patern):
+    pozice = set()
+    delka_paternu = len(patern)
+    delka_sequence = len(sequence)
+
+    i = 0
+    while i <= delka_sequence - delka_paternu:
+        j = 0
+        while j < delka_paternu and sequence[i + j] == patern[j]:
+            j += 1
+        if j == delka_paternu:
+            pozice.add(i)
+            i += 1
+        else:
+            i += max(1, j)
+
+    return pozice
+
 def main():
     pass
 
