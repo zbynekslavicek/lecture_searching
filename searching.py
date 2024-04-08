@@ -23,7 +23,7 @@ def read_data(file_name, field):
     with open(file_name, "r") as f:
         data = json.load(f)
 
-    return data.get(field)
+    return data[field]
 
 
 def main():
@@ -32,3 +32,7 @@ def main():
 
 if __name__ == '__main__':
     main()
+    file = "sequential.json"
+    field = "unordered_numbers"
+    seq_data = read_data(file, field)
+    print(seq_data)
