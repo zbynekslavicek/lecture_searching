@@ -59,7 +59,24 @@ def pattern_search(sekvence, vzor):
         if shoda:
             pozice_nalezu.add(i)
 
-    return sorted(pozice_nalezu)
+    return pozice_nalezu
+
+def binary_search(seznam, hledane_cislo):
+
+    left = 0
+    right = len(seznam) - 1
+
+    while left <= right:
+        mid = (left + right) // 2
+        if seznam[mid] == hledane_cislo:
+            return mid
+        elif seznam[mid] < hledane_cislo:
+            left = mid + 1
+        else:
+            right = mid - 1
+
+    return None
+
 
 if __name__ == '__main__':
     main()
@@ -71,3 +88,9 @@ if __name__ == '__main__':
     vzor = "ATA"
     vysledek = pattern_search("ATGACGGAATATAAGCTAGGTGGTGGCTGGGCAGTCCGCGCTGATAGGGCAAGAGTGCGCGTACCATACCACGCTAAGCCATATAGGGCATCAGTCAGCCTGGCA", vzor)
     print(f"Vzor '{vzor}' nalezen na pozicích:", vysledek)
+
+    cislo = 5
+    vysledek_vyh = linear_search(
+        [54, 2, 18, 5, 3, 31, 20, 65, -10, 300, 17, 5, -1, 0, 0, 102, 7, 8, 9, 9, -3, -5, 0, 1, 63, 82, -36, -5],
+        cislo)
+    print(vysledek_vyh)
